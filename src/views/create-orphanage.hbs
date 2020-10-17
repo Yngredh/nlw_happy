@@ -24,94 +24,94 @@
         <title>Adicionar um orfanato - Happy</title>
     </head>
     <body>
-        <div id="create-orphanage">
+        <div id="page-create-orphanage">
             <aside class="animate-right sidebar">
-                <img src="/images/map-marker.svg" alt="happy">
+                <img src="/images/map-marker.svg" alt="Happy" />
+
                 <footer>
                     <button onclick="history.back()">
-                        <img src="/images/arrow-back.svg" alt="voltar">
+                        <img src="/images/arrow-back.svg" alt="Voltar" />
                     </button>
                 </footer>
             </aside>
-            <main class="animate-appear with-sidebar">
-                <form action="">
-                    <fieldset>
-                        <legend>Dados</legend>
 
-                        <div class="map-container">
-                            <div id="mapid"></div>
-                            <input type="hidden" name="lat">
-                            <input type="hidden" name="lng">
+        <main class="animate-appear with-sidebar">
+            <form action="save-orphanage" method="post" onsubmit="validate(event)">
+                <fieldset>
+                    <legend>Dados</legend>
 
-                            <footer>
-                                <a href="#" id="select-point">Clique no mapa para adicionar a localização</a>
-                            </footer>
-                        </div>
+                    <div class="map-container">
+                    <div id="mapid"></div>
+                    <input type="hidden" name="lat" />
+                    <input type="hidden" name="lng" />
 
-                        <div class="input-block">
-                            <label for="name">Nome</label>
-                            <input id="name" name="name" required>
-                        </div>
+                    <footer>
+                        <a href="#" id="select-point">
+                            Clique no mapa para adicionar a localização
+                        </a>
+                    </footer>
+                    </div>
 
-                        <div class="input-block">
-                            <label for="about">Sobre <span>Máximo de 300 caracteres</span>
-                            </label>
-                            <textarea id="about" name="about" required></textarea>
-                            <!-- text area makes the text block bigger -->
-                        </div>
+                    <div class="input-block">
+                        <label for="name">Nome</label>
+                        <input id="name" name="name" required />
+                    </div>
 
-                        <div class="input-block">
-                            <label for="whatsapp">Numero de whatsapp</label>
-                            <input id="whatsapp" name="whatsapp" required>
-                        </div>
+                    <div class="input-block">
+                        <label for="about">Sobre <span>Máximo de 300 caracteres</span></label>
+                        <textarea id="about" name="about" required></textarea>
+                    </div>
 
-                        <div class="input-block images">
-                            <label for="images">Foto</label>
-                            <div class="images-upload" id="images">
-                            
+                    <div class="input-block">
+                        <label for="whatsapp">Número de WhatsApp</label>
+                        <input id="whatsapp" name="whatsapp" required />
+                    </div>
+
+                    <div class="input-block images">
+                        <label for="images">Fotos</label>
+                        <div class="images-upload" id="images">
                             <div class="new-upload">
-                                <input name="images" placeholder="Cole o link da foto aqui" required>
-                                <span onclick="deleteField(event)"><img src="/images/remove-file.svg" alt="remover foto"></span>
+                                <input name="images" placeholder="Cole o link da foto aqui" required type="url" />
+                                <span onclick="deleteField(event)">
+                                <img src="/images/remove-file.svg" alt="Remover Foto" />
+                                </span>
                             </div>
                         </div>
-                            <button onclick="addPhotoField()" type="button">
-                                <img src="/images/add-file.svg" alt="nova imagem">
-                            </button>
+                        <button onclick="addPhotoField()" type="button">
+                            <img src="/images/add-file.svg" alt="Adicionar foto" />
+                        </button>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Visitação</legend>
+
+                    <div class="input-block">
+                        <label for="instructions">Instruções</label>
+                        <textarea id="instructions" name="instructions" required></textarea>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="opening_hours">Horário das visitas</label>
+                        <input id="opening_hours" name="opening_hours" required />
+                    </div>
+
+                    <div class="input-block">
+                        <label for="open_on_weekends">Atende fim de semana?</label>
+                        <input type="hidden" id="open_on_weekends" name="open_on_weekends" value="1" required />
+
+                        <div class="button-select">
+                            <button data-value="1" onclick="toggleSelect(event)" type="button" class="active">Sim</button>
+                            <button data-value="0" onclick="toggleSelect(event)" type="button">Não</button>
                         </div>
 
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Visitação</legend>
-
-                        <div class="input-block">
-                            <label for="instructions">Instruções</label>
-                            <textarea id="instructions" name="instructions" required></textarea>
-                        </div>
-
-                        <div class="input-block">
-                            <label for="opening_hours">Horários das Visitas</label>
-                            <input id="opening_hours" name="opening_hours" required>
-                        </div>
-
-                        <div class="input-block">
-                            <label for="open-on-weekends">Atende fim de semana?</label>
-                            <input type="hidden" id="open-on-weekends" name="open-on-weekends" value="1" required>
-
-                            <div class="button-select">
-                                <button data-value="1"onclick="toggleSelect(event)" type="button" class="active">Sim</button>
-                                <button data-value="0"onclick="toggleSelect(event)" type="button">Não</button>
-                            </div>
-
-                            <button type="submit" class="primary-button">
-                                Confirmar
-                            </button>
-                        </div>
-
-
-                    </fieldset>
-            </main>
+                        <button type="submit" class="primary-button">Confirmar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
         </div>
+
         <script src="/scripts/page-create-orphanage.js"></script>
     </body>
 </html>
